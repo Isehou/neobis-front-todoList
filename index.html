@@ -4,6 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neobis-front-todoList</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <section class="todo">
+      <!-- todo create -->
+      <div class="todo-container">
+        <h1 class="title">
+          What's up,<input type="text" placeholder="Isan" />
+        </h1>
+        <label class="create-todo-label">
+          <h4>CREATE A TODO</h4>
+          <p class="subtitle">What's on your todo list?</p>
+          <input
+            class="create-todo-input"
+            type="text"
+            placeholder="e. g. get a milk"
+          />
+        </label>
+
+        <div class="category">
+          <p class="subtitle">Pick a category</p>
+          <div class="checkbox-btn-container">
+            <label class="checkbox-btn">
+              <input id="business" class="checked" type="checkbox" />
+              <p>Business</p>
+            </label>
+            <label class="checkbox-btn">
+              <input id="personal" class="checked" type="checkbox" />
+              <p>Personal</p>
+            </label>
+          </div>
+        </div>
+        <div class="add-todo-btn">
+          <button class="btn">ADD TODO</button>
+        </div>
+      </div>
+
+      <!-- tasks list -->
+      <div class="tasks-list-container">
+        <p class="subtitle">TODO LIST</p>
+        <ul class="list"></ul>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
 </html>
