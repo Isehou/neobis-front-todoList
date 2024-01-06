@@ -9,42 +9,62 @@
   <body>
     <section class="todo">
       <!-- todo create -->
-      <div class="todo-container">
-        <h1 class="title">
-          What's up,<input type="text" placeholder="Isan" />
+      <div class="todo__container">
+        <h1 class="todo__title">
+          What's up,<input
+            id="title-input"
+            type="text"
+            placeholder="enter your name"
+          />
         </h1>
-        <label class="create-todo-label">
+        <label class="input-box__label">
           <h4>CREATE A TODO</h4>
           <p class="subtitle">What's on your todo list?</p>
           <input
-            class="create-todo-input"
+            id="input-box"
+            class="input-box"
             type="text"
-            placeholder="e. g. get a milk"
+            placeholder="What do you want?"
           />
         </label>
 
-        <div class="category">
+        <div class="todo__category">
           <p class="subtitle">Pick a category</p>
-          <div class="checkbox-btn-container">
+          <div class="checkbox-btn__wrapper">
             <label class="checkbox-btn">
-              <input id="business" class="checked" type="checkbox" />
+              <input
+                id="category1"
+                class="checkbox-category circle"
+                type="radio"
+                value="business"
+                name="category"
+              />
+              <span class="circle business"></span>
               <p>Business</p>
             </label>
             <label class="checkbox-btn">
-              <input id="personal" class="checked" type="checkbox" />
+              <input
+                id="category2"
+                class="checkbox-category circle"
+                type="radio"
+                value="personal"
+                name="category"
+              />
+              <span class="circle personal"></span>
               <p>Personal</p>
             </label>
           </div>
         </div>
-        <div class="add-todo-btn">
-          <button class="btn">ADD TODO</button>
-        </div>
+
+        <button id="add-todo" class="add-todo__btn" onclick="addTask()">
+          ADD TODO
+        </button>
       </div>
 
       <!-- tasks list -->
-      <div class="tasks-list-container">
+      <div class="todo-tasks-list__container">
         <p class="subtitle">TODO LIST</p>
-        <ul class="list"></ul>
+        <ul id="todo-list" class="list"></ul>
       </div>
     </section>
     <script src="script.js"></script>
