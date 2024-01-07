@@ -216,8 +216,8 @@ input:checked ~ .circle::after {
 .personal.completed .checkbox::after {
   background-color: #f82ca3;
 }
-.business.completed span,
-.personal.completed span {
+.business.completed .input-text,
+.personal.completed .input-text {
   text-decoration: line-through;
   color: #555;
 }
