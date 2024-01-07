@@ -54,13 +54,13 @@ input {
 .todo__category {
   width: 100%;
 }
-.checkbox-btn__wrapper {
+.radio-btn__wrapper {
   width: 500px;
   height: 100%;
   display: flex;
   justify-content: space-between;
 }
-.checkbox-btn {
+.radio-btn {
   width: 240px;
   height: 140px;
   border-radius: 10px;
@@ -145,7 +145,10 @@ input:checked ~ .circle::after {
   grid-template-columns: 1em auto;
   gap: 0.5em;
 }
-.list.checked {
+.list span {
+  font-weight: 500;
+}
+.list span.completed {
   color: #555;
   text-decoration: line-through;
 }
