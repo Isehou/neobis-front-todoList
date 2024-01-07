@@ -1,8 +1,6 @@
 const inputBox = document.getElementById("input-box");
 const addTodoButton = document.getElementById("add-todo");
 const list = document.getElementById("todo-list");
-const selectCategory1 = document.getElementById("category1");
-const selectCategory2 = document.getElementById("category2");
 
 addTodoButton.addEventListener("click", addTask);
 
@@ -13,13 +11,18 @@ function addTask() {
     let newTask = document.createElement("li");
     list.appendChild(newTask);
 
-    const selectedCategory = selectCategory1.checked
-      ? selectCategory1.value
-      : selectCategory2.value;
+    const selectedCategory = document.querySelector(
+      'input[name="category"]:checked'
+    ).value;
+    newTask.classList.add(selectedCategory);
+    const id = Date.now();
+    newTask.setAttribute("id", id);
 
-    newTask.innerHTML = `<input class="checked circle" type="checkbox" onclick="completedTask(this.parentNode)" />
-    <span data-category="${selectedCategory}">${inputBox.value}</span>
-    <button id="edit" class="edit-btn" onclick="editTask(this.parentNode)">Edit</button>
+    newTask.innerHTML = `
+    <label class="checkbox">
+    <input type="checkbox" onchange="completedTask(${id})" /></label>
+    <input class="input-text" data-category="${selectedCategory}" value="${inputBox.value}" />
+    <button id="edit" class="edit-btn" onclick="editTask(${id})">Edit</button>
     <button id="delete" class="delete-btn" onclick="deleteTask(this.parentNode)">Delete</button>
     `;
   }
@@ -35,16 +38,13 @@ function addTask() {
 function deleteTask(taskItem) {
   list.removeChild(taskItem);
 }
-function completedTask(taskItem) {
-  const spanEl = taskItem.querySelector("span");
-  taskItem.classList.toggle("checked");
-  spanEl.classList.toggle("completed");
+function completedTask(id) {
+  document.getElementById(id).classList.toggle("completed");
 }
-function editTask(taskItem) {
-  const textEdit = taskItem.querySelector("span");
-  const currText = textEdit.innerText;
-  const newText = prompt("Edit task:", currText);
-  if (newText !== null) {
-    textEdit.textContent = newText;
-  }
+function editTask(id) {
+  const textEdit = document.getElementById(id).querySelector(".input-text");
+  const value = textEdit.value;
+  textEdit.value = "";
+  textEdit.focus();
+  textEdit.value = value;
 }

@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;800;900&display=swap");
+* {
+  box-sizing: border-box;
+}
 body {
   background-color: #f1f1f1;
 }
@@ -123,10 +126,6 @@ input:checked ~ .circle::after {
 .list {
   padding: 0;
 }
-.list span {
-  margin: 0 15px;
-  width: 330px;
-}
 .list li {
   box-sizing: content-box;
   margin-top: 20px;
@@ -145,12 +144,11 @@ input:checked ~ .circle::after {
   grid-template-columns: 1em auto;
   gap: 0.5em;
 }
-.list span {
+.list .input-text {
+  font-size: 14pt;
   font-weight: 500;
-}
-.list span.completed {
-  color: #555;
-  text-decoration: line-through;
+  margin: 0 15px;
+  width: 330px;
 }
 .list button {
   margin: 0 5px;
@@ -175,4 +173,51 @@ input:checked ~ .circle::after {
 .list button.edit-btn:active,
 .list button.delete-btn:active {
   transform: scale(0.9);
+}
+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 25px;
+  min-height: 25px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid #3174da;
+  cursor: pointer;
+}
+.checkbox::after {
+  transition: 0.2s ease-in-out;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+.business .checkbox {
+  box-shadow: 0px 0px 4px rgba(27, 118, 255, 0.75);
+}
+.personal .checkbox {
+  border: 2px solid #f82ca3;
+  box-shadow: 0px 0px 4px rgba(234, 64, 164, 0.75);
+}
+.personal.completed .checkbox {
+  border: 2px solid #f82ca3;
+}
+.checkbox input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  display: none;
+}
+.business.completed .checkbox::after {
+  background-color: #3174da;
+}
+.personal.completed .checkbox::after {
+  background-color: #f82ca3;
+}
+.business.completed span,
+.personal.completed span {
+  text-decoration: line-through;
+  color: #555;
 }
